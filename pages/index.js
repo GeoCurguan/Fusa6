@@ -9,25 +9,24 @@ const Index = () => {
         <link rel="icon" href="images/favicon.ico" />
       </Head>
 
-      <header>
-        <h1 className="title">Proyecto Fusa</h1>
-      </header>
-
       <main>
-
-
-
-        <p className="description">
-          Este código está en <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
+        <div className="items">
+          <div className="map">
+            <p className="description">
+              Aqui esta el mapa
+            </p>
+          </div>
+          <div className="info">
+            <p className="description">
+              Aqui esta la info
+            </p>
+          </div>
         </div>
       </main>
 
       <footer>
-        <a href="https://github.com/PabloSzx/INFO104-2021-1" target="_blank">
-          Repositorio y tutorial
+        <a href="https://github.com/GeoCurguan/Fusa6" target="_blank">
+          Repositorio
         </a>
         &nbsp;-&nbsp;
       </footer>
