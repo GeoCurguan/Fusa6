@@ -7,6 +7,7 @@ const Index = () => {
       <Head>
         <title>Proyecto FuSa</title>
         <link rel="icon" href="images/favicon.ico" />
+        <script src="components/ajax.js"></script>
       </Head>
 
       <main>
@@ -20,10 +21,11 @@ const Index = () => {
             <p className="description">
               Aqui esta la info
             </p>
+            <button class="btn">Tabla</button>
             <div className="Tabla">
               <table border="2">
                 <caption>
-                  <tr><tr>Fecha inicio:</tr><tr>0</tr></tr>
+                  <tr>Fecha inicio:</tr><tr>0</tr>
                   <tr>Fecha fin: </tr><tr>0</tr> 
                 </caption>
                 <thead>
@@ -31,18 +33,13 @@ const Index = () => {
                       Composicion de los eventos sonoros en el sector
                     </th>
                 </thead>
-                <tr>
-                    <td>Fuentes de sonido</td><td> Porcentaje</td><td> Duracion </td>
-                </tr>
-                <tr>
-                    <td>Autos</td><td> % </td><td> 0 </td> 
-                </tr>
-                <tr>
-                    <td>Personas</td><td> % </td><td> 0 </td>
-                </tr>
-                <tr>
-                    <td>Animales</td><td> % </td><td> 0 </td>
-                </tr>
+                <tbody id= "res">
+                  <tr>
+                    <th>Fuentes</th>
+                    <th>Porcentaje</th>
+                    <th>Duracion</th>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </div>
