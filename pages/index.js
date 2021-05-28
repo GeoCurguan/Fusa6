@@ -21,27 +21,23 @@ const Index = () => {
             <p className="description">
               Aqui esta la info
             </p>
-            <button class="btn">Tabla</button>
-            <div className="Tabla">
+          <div className="Tabla">
+            <button class="btn" id="json" >Tabla</button>
               <table border="2">
                 <caption>
-                  <tr>Fecha inicio:</tr><tr>0</tr>
-                  <tr>Fecha fin: </tr><tr>0</tr> 
+                  <tr>Composicion de eventos sonoros</tr>
                 </caption>
                 <thead>
-                    <th colSpan="3">
-                      Composicion de los eventos sonoros en el sector
-                    </th>
+                  <tr>
+                    <th>Fuentes</th><th>Porcentaje</th><th>Duracion</th>
+                  </tr>
                 </thead>
                 <tbody id= "res">
-                  <tr>
-                    <th>Fuentes</th>
-                    <th>Porcentaje</th>
-                    <th>Duracion</th>
-                  </tr>
+                
                 </tbody>
               </table>
             </div>
+            <script src="components/ajax.js"></script>
           </div>
         </div>
       </main>
