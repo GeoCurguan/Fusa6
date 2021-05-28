@@ -1,0 +1,17 @@
+[
+    {
+        "Fuentes": "Autos",
+        "Porcentaje": "70",
+        "Duracion": "Constante"
+    },
+    {
+        "Fuentes": "Personas",
+        "Porcentaje": "28",
+        "Duracion": "Constante" 
+    },
+    {
+        "Fuentes": "Animales",
+        "Porcentaje": "2",
+        "Duracion": "Casual"
+    }
+]

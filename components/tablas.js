@@ -1,9 +1,11 @@
+export default class Component extends React.Component {} 
 console.log('si');
+
 document.querySelector('#json').addEventListener('click',informacion());
 
 function informacion(){
     const xhttp = new XMLHttpRequest();
-    xhttp.open('GET','informacion.json',true);
+    xhttp.open('GET','components/informacio.json',true);
     xhttp.send();
     xhttp.onreadystatechange = function(){
         if(this.readyState==4 && this.status==200){
