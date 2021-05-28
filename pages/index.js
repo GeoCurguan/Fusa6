@@ -1,7 +1,12 @@
 import Head from "next/head";
 //import Link from "next/link";
 //import Image from "next/image";
+import React from "react";
+import dynamic from "next/dynamic";
+
 const Index = () => {
+  const Map = dynamic(() => import("../components/map"), { ssr: false });
+
   return (
     <div className="container">
       <Head>
@@ -12,12 +17,10 @@ const Index = () => {
 
       <main>
         <div className="items">
-          <div className="map">
-            <p className="description">
-              Aqui esta el mapa
-            </p>
+          <div className="map" id="map">
+            <Map />
           </div>
-          <div className="info">      
+          <div className="info">
             <p className="description">
               Aqui esta la info
             </p>
@@ -33,7 +36,7 @@ const Index = () => {
                   </tr>
                 </thead>
                 <tbody id= "res">
-                
+
                 </tbody>
               </table>
             </div>
