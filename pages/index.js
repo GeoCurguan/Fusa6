@@ -1,6 +1,4 @@
 import Head from "next/head";
-//import Link from "next/link";
-//import Image from "next/image";
 import React from "react";
 import dynamic from "next/dynamic";
 import CustomizedTables from "../components/table"
@@ -20,15 +18,18 @@ const Index = () => {
       <main>
         <div className="items">
           <div className="map" id="map">
-            <Map />
+            <Map>
+            </Map>
           </div>
           <div className="info">
-            
             <div className="date">
               <p> Fecha de inicio: </p> <p> Fecha final:</p>
             </div>
             <div className="tabla">
               <CustomizedTables />
+            </div>
+            <div className="playerContainer">
+              Reproductor de audio
             </div>
           </div>
         </div>
@@ -37,7 +38,7 @@ const Index = () => {
       <footer>
         <a href="https://github.com/GeoCurguan/Fusa6" target="_blank">
           Repositorio
-          
+
         </a>
         &nbsp;-&nbsp;
       </footer>
