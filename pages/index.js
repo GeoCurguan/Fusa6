@@ -2,6 +2,7 @@ import Head from "next/head";
 import React from "react";
 import dynamic from "next/dynamic";
 import CustomizedTables from "../components/table"
+import {Player} from "../components/reproductor"
 
 
 const Index = () => {
@@ -29,7 +30,7 @@ const Index = () => {
               <CustomizedTables />
             </div>
             <div className="playerContainer">
-              Reproductor de audio
+              <Player />
             </div>
           </div>
         </div>
