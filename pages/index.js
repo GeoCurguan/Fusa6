@@ -5,6 +5,8 @@ import CustomizedTables from "../components/table"
 import {Player} from "../components/reproductor"
 
 
+
+
 const Index = () => {
   const Map = dynamic(() => import("../components/map"), { ssr: false });
 

@@ -7,6 +7,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {AutoClick} from "../components/FuncionClick"
+import {PersonaClick} from "../components/FuncionClick"
+import {AnimalClick} from "../components/FuncionClick"
+
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -26,14 +30,14 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(name, Porcentaje , Duracion) {
-    return { name, Porcentaje, Duracion};
+function createData(sound, name, Porcentaje , Duracion) {
+    return {sound, name, Porcentaje, Duracion};
 }
 
 const rows = [
-    createData('Autos', 70, 'constante'),
-    createData('Personas', 25, 'constante'),
-    createData('Animales', 5, 'casual'),
+    createData(<AutoClick />,'Autos', 70, 'constante'),
+    createData(<PersonaClick/>,'Personas', 25, 'constante'),
+    createData(<AnimalClick/>,'Animales', 5, 'casual'),
 ];
 
 const useStyles = makeStyles({
@@ -50,17 +54,17 @@ export default function CustomizedTables() {
         <Table className={classes.table} aria-label="customized table">
             <TableHead>
             <TableRow>
-                <StyledTableCell>Fuentes sonoras</StyledTableCell>
-                <StyledTableCell align="right">Porcentaje</StyledTableCell>
-                <StyledTableCell align="right">Duracion</StyledTableCell>
+                <StyledTableCell>Sonidos</StyledTableCell> 
+                <StyledTableCell >Fuentes sonoras</StyledTableCell>
+                <StyledTableCell align="right" >Porcentaje</StyledTableCell>
+                <StyledTableCell align="right" >Duracion</StyledTableCell>
             </TableRow>
             </TableHead>
             <TableBody>
             {rows.map((row) => (
-                <StyledTableRow key={row.name}>
-                <StyledTableCell component="th" scope="row">
-                    {row.name}
-                </StyledTableCell>
+                <StyledTableRow key={row.name} >  
+                <StyledTableCell align="right">{row.sound}</StyledTableCell>
+                <StyledTableCell component="th" scope="row">{row.name} </StyledTableCell> 
                 <StyledTableCell align="right">{row.Porcentaje}</StyledTableCell>
                 <StyledTableCell align="right">{row.Duracion}</StyledTableCell>
                 </StyledTableRow>
