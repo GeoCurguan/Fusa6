@@ -1,15 +1,21 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect , useState} from "react";
 import dynamic from "next/dynamic";
 import CustomizedTables from "../components/table"
 import {Player} from "../components/reproductor"
+import ViewCoords from "../components/coords";
 
 
 
 
 const Index = () => {
   const Map = dynamic(() => import("../components/map"), { ssr: false });
+    const [position,setPosition] = useState("0");
+    function latLngClick(event){
 
+      setPosition(event.latlng)
+      console.log(position);
+    }
 
   return (
     <div className="container">
@@ -21,12 +27,11 @@ const Index = () => {
       <main>
         <div className="items">
           <div className="map" id="map">
-            <Map>
-            </Map>
+            <Map onClick={latLngClick} center={position}/>  
           </div>
           <div className="info">
             <div className="date">
-              <p> Fecha de inicio: </p> <p> Fecha final:</p>
+              <ViewCoords ubicacion={position}/>
             </div>
             <div className="tabla">
               <CustomizedTables />
