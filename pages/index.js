@@ -5,7 +5,7 @@ import CustomizedTables from "../components/table"
 import {Player} from "../components/reproductor"
 import ViewCoords from "../components/coords";
 
-
+import AudioState from "../contexts/AudiosContext/AudioState";
 
 
 const Index = () => {
@@ -27,18 +27,20 @@ const Index = () => {
       <main>
         <div className="items">
           <div className="map" id="map">
-            <Map onClick={latLngClick} center={position}/>  
+            <Map onClick={latLngClick} center={position}/>
           </div>
           <div className="info">
             <div className="date">
               <ViewCoords ubicacion={position}/>
             </div>
-            <div className="tabla">
-              <CustomizedTables />
-            </div>
-            <div className="playerContainer">
-              <Player />
-            </div>
+            <AudioState>
+              <div className="tabla">
+                <CustomizedTables />
+              </div>
+              <div className="playerContainer">
+                <Player />
+              </div>
+            </AudioState>
           </div>
         </div>
       </main>

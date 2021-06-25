@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect , useContext} from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -11,6 +11,7 @@ import {AutoClick} from "../components/FuncionClick"
 import {PersonaClick} from "../components/FuncionClick"
 import {AnimalClick} from "../components/FuncionClick"
 
+import AudioContext from '../contexts/AudiosContext/AudioContext';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -34,11 +35,7 @@ function createData(sound, name, Porcentaje , Duracion) {
     return {sound, name, Porcentaje, Duracion};
 }
 
-const rows = [
-    createData(<AutoClick />,'Autos', 70, 'constante'),
-    createData(<PersonaClick/>,'Personas', 25, 'constante'),
-    createData(<AnimalClick/>,'Animales', 5, 'casual'),
-];
+
 
 const useStyles = makeStyles({
     table: {
@@ -48,13 +45,25 @@ const useStyles = makeStyles({
 
 export default function CustomizedTables() {
     const classes = useStyles();
+    const { audios, selectedAudios, getAudios, getReproducerAudio} = useContext(AudioContext)
+    const rows = [
+        createData(<button onClick={() => getReproducerAudio(0)}>Auto</button>,'Autos', 70, 'constante'),
+        createData(<button onClick={() => getReproducerAudio(1)}>Persona</button>,'Personas', 25, 'constante'),
+        createData(<button onClick={() => getReproducerAudio(2)}>Animales</button>,'Animales', 5, 'casual'),
+    ];
+
+
+    useEffect(() => {
+        getAudios();
+        //console.log()
+    }, [])
 
     return (
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
             <TableHead>
             <TableRow>
-                <StyledTableCell>Sonidos</StyledTableCell> 
+                <StyledTableCell>Sonidos</StyledTableCell>
                 <StyledTableCell >Fuentes sonoras</StyledTableCell>
                 <StyledTableCell align="right" >Porcentaje</StyledTableCell>
                 <StyledTableCell align="right" >Duracion</StyledTableCell>
@@ -62,9 +71,9 @@ export default function CustomizedTables() {
             </TableHead>
             <TableBody>
             {rows.map((row) => (
-                <StyledTableRow key={row.name} >  
+                <StyledTableRow key={row.name} >
                 <StyledTableCell align="right">{row.sound}</StyledTableCell>
-                <StyledTableCell component="th" scope="row">{row.name} </StyledTableCell> 
+                <StyledTableCell component="th" scope="row">{row.name} </StyledTableCell>
                 <StyledTableCell align="right">{row.Porcentaje}</StyledTableCell>
                 <StyledTableCell align="right">{row.Duracion}</StyledTableCell>
                 </StyledTableRow>

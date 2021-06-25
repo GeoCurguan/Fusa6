@@ -1,24 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AudioPlayer from 'react-h5-audio-player';
-
-
-
+import AudioContext from '../contexts/AudiosContext/AudioContext';
 
 export const Player = () => {
+    const { selectedAudio } = useContext(AudioContext)
     return(
-    <AudioPlayer
-        autoPlay
-        src="/sonido/Autos.wav"
-    />
-    )
-};
-
-
-export const Player1 = () => {
-    return(
-    <AudioPlayer
-        autoPlay
-        src="/sonido/Personas.wav"
-    />
+        <>
+            {selectedAudio ? (<AudioPlayer autoPlay src={"data:audio/x-wav;base64," + selectedAudio}/>) : (<h1>Audio No seleccionado</h1>)}
+        </>
     )
 };
