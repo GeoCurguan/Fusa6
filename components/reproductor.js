@@ -6,7 +6,7 @@ export const Player = () => {
     const { selectedAudio } = useContext(AudioContext)
     return(
         <>
-            {selectedAudio ? (<AudioPlayer autoPlay src={"data:audio/x-wav;base64," + selectedAudio}/>) : (<h1>Audio No seleccionado</h1>)}
+            {selectedAudio ? (<AudioPlayer autoPlay src={"data:audio/x-wav;base64," + selectedAudio}/>) : (<AudioPlayer />)}
         </>
     )
 };

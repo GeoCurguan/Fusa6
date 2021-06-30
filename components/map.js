@@ -19,7 +19,7 @@ const MapEvents = ( {onClick} ) =>{
 const Map = ( {onClick}, props) => {
     const [ubicacion, setUbicacion] = useState(0);
 
-    const rectangle1 = [
+    const points = [
       [-39.864216894993135, -73.2474545716109],
       [-39.8575178850699, -73.21414565773605],
       [-39.85057939493586, -73.19460733383546],
@@ -48,7 +48,8 @@ const Map = ( {onClick}, props) => {
       [-39.84599334255244, -73.25686532969843],
       [-39.852610873436085, -73.2594211375866]
     ];
-    const blackOptions = {color: '#0084b5'}
+    const colorOptions = {color: '#0084b5'}
+
     return (
       <MapContainer
         center={center}
@@ -59,7 +60,7 @@ const Map = ( {onClick}, props) => {
           url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         />
-        <Polygon positions={rectangle1} pathOptions={blackOptions}>
+        <Polygon positions={points} pathOptions={colorOptions}>
           <MapEvents onClick={onClick}/>
         </Polygon>
       </MapContainer>

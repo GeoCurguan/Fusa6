@@ -15,7 +15,7 @@ import AudioContext from '../contexts/AudiosContext/AudioContext';
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: theme.palette.common.black,
+        backgroundColor: "#006dea",
         color: theme.palette.common.white,
     },
     body: {
@@ -46,16 +46,17 @@ const useStyles = makeStyles({
 export default function CustomizedTables() {
     const classes = useStyles();
     const { audios, selectedAudios, getAudios, getReproducerAudio} = useContext(AudioContext)
-    const rows = [
+    /*const rows = [
         createData(<button onClick={() => getReproducerAudio(0)}>Auto</button>,'Autos', 70, 'constante'),
         createData(<button onClick={() => getReproducerAudio(1)}>Persona</button>,'Personas', 25, 'constante'),
         createData(<button onClick={() => getReproducerAudio(2)}>Animales</button>,'Animales', 5, 'casual'),
-    ];
+        createData('a','b','c','d'),
+    ];*/
 
 
     useEffect(() => {
         getAudios();
-        //console.log()
+        /*console.log(audios[1].id);*/
     }, [])
 
     return (
@@ -63,19 +64,19 @@ export default function CustomizedTables() {
         <Table className={classes.table} aria-label="customized table">
             <TableHead>
             <TableRow>
-                <StyledTableCell>Sonidos</StyledTableCell>
-                <StyledTableCell >Fuentes sonoras</StyledTableCell>
-                <StyledTableCell align="right" >Porcentaje</StyledTableCell>
-                <StyledTableCell align="right" >Duracion</StyledTableCell>
+                <StyledTableCell align="center">Sonidos</StyledTableCell>
+                <StyledTableCell align="center">Latitud</StyledTableCell>
+                <StyledTableCell align="center">Longitud</StyledTableCell>
+                <StyledTableCell align="center">Nombre</StyledTableCell>
             </TableRow>
             </TableHead>
             <TableBody>
-            {rows.map((row) => (
-                <StyledTableRow key={row.name} >
-                <StyledTableCell align="right">{row.sound}</StyledTableCell>
-                <StyledTableCell component="th" scope="row">{row.name} </StyledTableCell>
-                <StyledTableCell align="right">{row.Porcentaje}</StyledTableCell>
-                <StyledTableCell align="right">{row.Duracion}</StyledTableCell>
+            {audios.map((aud) => (
+                <StyledTableRow key={aud.id} >
+                <StyledTableCell align="right"><button onClick={() => getReproducerAudio((aud.id)-1)}>Audio</button></StyledTableCell>
+                <StyledTableCell component="th" scope="row">{aud.latitude} </StyledTableCell>
+                <StyledTableCell align="right">{aud.longitude}</StyledTableCell>
+                <StyledTableCell align="right">{aud.filename}</StyledTableCell>
                 </StyledTableRow>
             ))}
             </TableBody>

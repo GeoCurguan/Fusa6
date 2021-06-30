@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import CustomizedTables from "../components/table"
 import {Player} from "../components/reproductor"
 import ViewCoords from "../components/coords";
-
 import AudioState from "../contexts/AudiosContext/AudioState";
 
 
@@ -46,10 +45,7 @@ const Index = () => {
       </main>
 
       <footer>
-        <a href="https://github.com/GeoCurguan/Fusa6" target="_blank">
-          Repositorio
-
-        </a>
+        <a href="https://github.com/GeoCurguan/Fusa6" target="_blank">Repositorio</a>
         &nbsp;-&nbsp;
       </footer>
     </div>

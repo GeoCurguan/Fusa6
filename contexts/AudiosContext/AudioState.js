@@ -14,17 +14,17 @@ const AudioState = (props) => {
 
     const getAudios = async () => {
         const res = await axios.get('http://45.79.170.31:8000/audio/%7D')
-        //console.log(res.data)
+        console.log(res.data)
         dispatch({
             type: 'GET_AUDIOS',
             payload: res.data
         })
-        console.log(initialState.audios[1])
+        //console.log(initialState.audios[1])
     }
 
     const getReproducerAudio = async (id) => {
+        console.log(initialState.audios)
         const res = await axios.get('http://45.79.170.31:8000/audio/%7D')
-        console.log(initialState.audios[1])
         dispatch({
             type: 'GET_REPRODUCER_AUDIOS',
             payload: res.data[id].data
