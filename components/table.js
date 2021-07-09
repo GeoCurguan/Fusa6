@@ -58,7 +58,7 @@ export default function CustomizedTables() {
         getAudios();
         /*console.log(audios[1].id);*/
     }, [])
-
+    var idItems = 0;
     return (
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
@@ -67,16 +67,14 @@ export default function CustomizedTables() {
                 <StyledTableCell align="center">Sonidos</StyledTableCell>
                 <StyledTableCell align="center">Latitud</StyledTableCell>
                 <StyledTableCell align="center">Longitud</StyledTableCell>
-                <StyledTableCell align="center">Nombre</StyledTableCell>
             </TableRow>
             </TableHead>
             <TableBody>
-            {audios.map((aud) => (
+            {audios.map((aud, idItems) => (
                 <StyledTableRow key={aud.id} >
-                <StyledTableCell align="right"><button onClick={() => getReproducerAudio((aud.id)-1)}>Audio</button></StyledTableCell>
+                <StyledTableCell align="right"><button onClick={() => getReproducerAudio((aud.id))}>Audio</button></StyledTableCell>
                 <StyledTableCell component="th" scope="row">{aud.latitude} </StyledTableCell>
                 <StyledTableCell align="right">{aud.longitude}</StyledTableCell>
-                <StyledTableCell align="right">{aud.filename}</StyledTableCell>
                 </StyledTableRow>
             ))}
             </TableBody>

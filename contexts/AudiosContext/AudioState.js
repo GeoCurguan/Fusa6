@@ -13,21 +13,23 @@ const AudioState = (props) => {
     const [state, dispatch] = useReducer(AudioReducer, initialState)
 
     const getAudios = async () => {
-        const res = await axios.get('http://45.79.170.31:8000/audio/%7D')
-        console.log(res.data)
+        const res = await axios.get('http://45.79.170.31:8000/audios?max_files=10&max_duration=80&max_size=1323044&min_timestamp=1000000000&max_timestamp=2000000000&min_latitude=-90&max_latitude=90&min_longitude=-180&max_longitude=180',
+                {headers:{'X-Api-Key': 'RXXceb89Vv30H3FhGaCg'}})
+        console.log(res.data.data)
         dispatch({
             type: 'GET_AUDIOS',
-            payload: res.data
+            payload: res.data.data
         })
-        //console.log(initialState.audios[1])
     }
 
     const getReproducerAudio = async (id) => {
-        console.log(initialState.audios)
-        const res = await axios.get('http://45.79.170.31:8000/audio/%7D')
+        //console.log(initialState.audios)
+        const res = await axios.get('http://45.79.170.31:8000/audios?max_files=10&max_duration=80&max_size=1323044&min_timestamp=1000000000&max_timestamp=2000000000&min_latitude=-90&max_latitude=90&min_longitude=-180&max_longitude=180',
+                {headers:{'X-Api-Key': 'RXXceb89Vv30H3FhGaCg'}})
+        console.log(res.data.data[1].data)
         dispatch({
             type: 'GET_REPRODUCER_AUDIOS',
-            payload: res.data[id].data
+            payload: res.data.data[1].data
         })
     }
 
