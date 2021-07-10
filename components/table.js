@@ -7,9 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import {AutoClick} from "../components/FuncionClick"
-import {PersonaClick} from "../components/FuncionClick"
-import {AnimalClick} from "../components/FuncionClick"
 
 import AudioContext from '../contexts/AudiosContext/AudioContext';
 
@@ -31,34 +28,22 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
-function createData(sound, name, Porcentaje , Duracion) {
-    return {sound, name, Porcentaje, Duracion};
-}
-
-
-
 const useStyles = makeStyles({
     table: {
         minWidth: 400,
     },
 });
 
-export default function CustomizedTables() {
+export default function CustomizedTables(props) {
     const classes = useStyles();
     const { audios, selectedAudios, getAudios, getReproducerAudio} = useContext(AudioContext)
-    /*const rows = [
-        createData(<button onClick={() => getReproducerAudio(0)}>Auto</button>,'Autos', 70, 'constante'),
-        createData(<button onClick={() => getReproducerAudio(1)}>Persona</button>,'Personas', 25, 'constante'),
-        createData(<button onClick={() => getReproducerAudio(2)}>Animales</button>,'Animales', 5, 'casual'),
-        createData('a','b','c','d'),
-    ];*/
 
+    var lat = props.ubicacion.lat;
+    var lng = props.ubicacion.lng;
 
     useEffect(() => {
         getAudios();
-        /*console.log(audios[1].id);*/
     }, [])
-    var idItems = 0;
     return (
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="customized table">
@@ -70,9 +55,9 @@ export default function CustomizedTables() {
             </TableRow>
             </TableHead>
             <TableBody>
-            {audios.map((aud, idItems) => (
-                <StyledTableRow key={aud.id} >
-                <StyledTableCell align="right"><button onClick={() => getReproducerAudio((aud.id))}>Audio</button></StyledTableCell>
+            {audios.map((aud) => (
+                <StyledTableRow key={audios.indexOf(aud)} >
+                <StyledTableCell align="right"><button onClick={() => getReproducerAudio((aud.data))}>Audio</button></StyledTableCell>
                 <StyledTableCell component="th" scope="row">{aud.latitude} </StyledTableCell>
                 <StyledTableCell align="right">{aud.longitude}</StyledTableCell>
                 </StyledTableRow>

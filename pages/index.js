@@ -9,12 +9,11 @@ import AudioState from "../contexts/AudiosContext/AudioState";
 
 const Index = () => {
   const Map = dynamic(() => import("../components/map"), { ssr: false });
-    const [position,setPosition] = useState("0");
-    function latLngClick(event){
-
-      setPosition(event.latlng)
-      console.log(position);
-    }
+  const [position,setPosition] = useState("0");
+  function latLngClick(event){
+    setPosition(event.latlng)
+    console.log(position);
+  }
 
   return (
     <div className="container">
@@ -34,7 +33,7 @@ const Index = () => {
             </div>
             <AudioState>
               <div className="tabla">
-                <CustomizedTables />
+                <CustomizedTables ubicacion={position}/>
               </div>
               <div className="playerContainer">
                 <Player />
