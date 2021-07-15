@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useEffect , useState} from "react";
+import React, { useState} from "react";
 import dynamic from "next/dynamic";
 import CustomizedTables from "../components/table"
 import {Player} from "../components/reproductor"
@@ -12,7 +12,6 @@ const Index = () => {
   const [position,setPosition] = useState("0");
   function latLngClick(event){
     setPosition(event.latlng)
-    console.log(position);
   }
 
   return (

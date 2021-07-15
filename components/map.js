@@ -1,5 +1,5 @@
 import { MapContainer, TileLayer, Marker, Polygon, useMapEvents, Rectangle, useMap } from "react-leaflet";
-import React, { useState } from "react";
+import React from "react";
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
@@ -16,8 +16,7 @@ const MapEvents = ( {onClick} ) =>{
   return null;
 }
 
-const Map = ( {onClick}, props) => {
-    const [ubicacion, setUbicacion] = useState(0);
+const Map = ( {onClick} ) => {
 
     const points = [
       [-39.864216894993135, -73.2474545716109],

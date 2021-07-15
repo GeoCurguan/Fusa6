@@ -1,7 +1,6 @@
 const ViewCoords = (props) => {
     var lat = props.ubicacion.lat;
     var lng = props.ubicacion.lng;
-    console.log(props.ubicacion == "0")
     return(
         <div>
         <p className="loc">Latitud: {lat}  </p>

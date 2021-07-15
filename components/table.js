@@ -42,7 +42,7 @@ export default function CustomizedTables(props) {
     var lng = props.ubicacion.lng;
 
     useEffect(() => {
-        getAudios();
+        getAudios(lat, lng);
     }, [])
     return (
         <TableContainer component={Paper}>
